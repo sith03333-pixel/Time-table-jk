@@ -1,0 +1,447 @@
+/* =========================
+   GLOBAL
+========================= */
+
+:root {
+    --neon: #00eaff;
+    --dark-bg: #001c2f;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #00101c, #000814);
+    color: var(--neon);
+    text-align: center;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 8px var(--neon),
+        0 0 20px rgba(0,234,255,0.6);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button, select {
+    border: 0.2px solid var(--neon);
+    background: transparent;
+    color: var(--neon);
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px var(--neon),
+        0 0 15px rgba(0,234,255,0.5);
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    box-shadow:
+        0 0 8px var(--neon),
+        0 0 25px rgba(0,234,255,0.7),
+        0 0 40px rgba(0,234,255,0.5);
+        border-radius: 10px;
+}
+button:active {
+    transform: scale(0.95);
+}
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+    margin: 30px auto;
+    padding: 20px;
+    width: 80%;
+
+    border: 0.2px solid var(--neon);
+
+    box-shadow:
+        0 0 10px var(--neon),
+        0 0 30px rgba(0,234,255,0.6),
+        0 0 60px rgba(0,234,255,0.4);
+        border-radius: 10px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    width: 80%;
+    margin: 20px auto;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    border: 0.2px solid var(--neon);
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 6px var(--neon),
+        0 0 20px rgba(0,234,255,0.5);
+}
+
+th, td {
+     padding: 16px 20px;
+    border-right: 0.2px solid rgba(0,234,255,0.6);
+    border-bottom: 0.2px solid rgba(0,234,255,0.6);
+    border-radius: 10px;
+}
+
+th:last-child,
+td:last-child {
+    border-right: none;
+    border-radius: 10px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+    border-radius: 10px;
+}
+
+/* =========================
+   PROGRESS CIRCLE
+========================= */
+/* Background ring */
+.bg-circle {
+    fill: none;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 8;
+}
+
+/* ✨ Center Glow Effect */
+.inner-glow {
+    fill: url(#glowGradient);
+}
+.progress-section {
+    margin-top: 30px;
+}
+.inner-glow {
+    fill: url(#glowGradient);
+    filter: blur(6px);
+    opacity: 0.9;
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.progress-ring {
+    fill: none;
+    stroke: var(--neon);
+    stroke-width: 8;
+    stroke-linecap: round;
+
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+
+    transition: stroke-dashoffset 0.6s ease;
+
+    filter:
+        drop-shadow(0 0 6px var(--neon))
+        drop-shadow(0 0 20px rgba(0,234,255,0.6));
+}
+.progress-circle svg {
+    overflow: visible;
+}
+/* =========================
+   STOPWATCH
+========================= */
+
+.stopwatch {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+
+    border: 0.2px solid var(--neon);
+    border-radius: 10px;
+    margin: 20px auto; /* instead of 40px */
+    box-shadow:
+        0 0 12px var(--neon),
+        0 0 35px rgba(0,234,255,0.6),
+        0 0 70px rgba(0,234,255,0.4);
+}
+
+#display {
+    font-size: 40px;
+    margin: 15px 0;
+
+    text-shadow:
+        0 0 10px var(--neon),
+        0 0 25px rgba(0,234,255,0.6);
+}
+
+/* =========================
+   NEON OFF MODE
+========================= */
+
+body.neon-off * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+body.neon-off table,
+body.neon-off th,
+body.neon-off td,
+body.neon-off button,
+body.neon-off select,
+body.neon-off .panel,
+body.neon-off .stopwatch {
+    border: 0.2px solid #222 !important;
+    border-radius: 10px;
+}
+
+body.neon-off {
+    background: #111;
+    color: #eee;
+}
+input[type="time"] {
+    background: transparent;
+    color: var(--neon);
+    border: 1px solid rgba(0, 234, 255, 0.3);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/* This targets the clock icon in Chrome/Edge */
+::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(100%) saturate(10000%) hue-rotate(170deg);
+}
+/* =========================
+   REFINED MODAL STYLES (Professional Neon)
+========================= */
+
+/* Use a cleaner font family */
+:root {
+    --font-heading: 'Syncopate', 'Arial Black', sans-serif; 
+    --font-body: 'Orbitron', 'Chivo Mono', 'Courier New', monospace; 
+    --pink-alarm: #00eaff;
+    --cyan-glow: #00eaff;
+}
+
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.25); /* slightly lighter so blur shows */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px); /* Safari support */
+
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 35px 45px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 280px;
+
+    background: rgba(0, 20, 30, 0.35);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    border: 1px solid rgba(0, 234, 255, 0.25);
+
+    box-shadow:
+        0 0 20px rgba(0,234,255,0.6),
+        0 0 60px rgba(0,234,255,0.4),
+        inset 0 0 25px rgba(0,234,255,0.1);
+}
+
+#modalTitle {
+    font-size: 26px;
+    letter-spacing: 2px;
+
+    color: #00eaff;
+
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px rgba(0,234,255,0.8),
+        0 0 50px rgba(0,234,255,0.6);
+}
+#modalTaskName {
+    font-family: var(--font-body);
+    font-size: 22px;
+    font-weight: 500;
+    margin: 8px 0;
+    color: var(--cyan-glow);
+    opacity: 0.9;
+}
+
+#modalStatus {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: -3px;
+    color: #fff;
+    text-transform: lowercase;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+#closeModalBtn {
+    margin-top: 20px;
+    padding: 10px 25px;
+
+    background: transparent;
+    color: #00eaff;
+
+    border: 1px solid #00eaff;
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 25px rgba(0,234,255,0.6);
+
+    transition: 0.3s ease;
+}
+
+#closeModalBtn:hover {
+    background: #00eaff;
+    color: #000;
+
+    box-shadow:
+        0 0 20px #00eaff,
+        0 0 50px rgba(0,234,255,0.8);
+}
+/* Color for the row when the 'Done' checkbox is ticked */
+tr.task-done {
+    background-color: rgba(139, 0, 0, 0.4) !important; /* Brownish Red with transparency */
+    color: #cca3a3; /* Faded text color */
+    text-decoration: line-through; /* Optional: adds a strike-through effect */
+    transition: background-color 0.4s ease;
+}
+
+/* Optional: Make the glow of the checkbox match when ticked */
+tr.task-done .done {
+    filter: drop-shadow(0 0 5px #8b0000);
+}
+.task-done {
+    background-color: rgba(139, 69, 19, 0.4) !important; /* Brownish Red */
+    color: #a0a0a0;
+    text-decoration: line-through;
+}
+.progress-circle {
+    position: relative;
+}
+
+#circleText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+.countdown {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.countdown:contains("Starts") {
+    color: #00eaff;
+}
+
+.countdown:contains("Ends") {
+    color: #00ff88;
+}
+.countdown.finished {
+    color:  #00ff88;/* red */
+    font-weight: bold;
+    text-shadow:0 0 10px #00ff88;
+}
+#liveDate {
+    font-size: 20px;
+    color: #00ff88;
+
+    margin-top: 5px;
+
+    text-shadow:
+        0 0 8px #00ff88,
+        0 0 20px rgba(0,255,136,0.6);
+
+    opacity: 0.85;
+}
+#liveClock {
+    font-size: 80px; /* same as heading */
+    color: #00ff88;
+
+    margin-top: 60px;
+
+    text-shadow:
+        0 0 10px #00ff88,
+        0 0 25px rgba(0,255,136,0.7),
+        0 0 40px rgba(0,255,136,0.5);
+}
+@media print {
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    header,
+    .panel,
+    .stopwatch,
+    #liveClock {
+        display: none !important; /* hide UI parts */
+    }
+
+    table {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid black;
+    }
+
+    th, td {
+        color: black !important;
+        border: 1px solid black !important;
+        text-shadow: none !important;
+    }
+
+    button {
+        display: none !important;
+    }
+
+    input {
+        border: none;
+        color: black;
+    }
+
+    .countdown {
+        color: black !important;
+    }
+}

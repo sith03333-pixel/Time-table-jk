@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <button class="top-btn">☰ Menu</button>
+    <h1>TIME TABLE</h1>
+    <button class="top-btn" id="cornerNeon">⚡ Neon mode</button>
+</header>
+
+<div class="panel">
+    <button id="addBtn">+ Add</button>
+
+    <select id="daySelect">
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option selected>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+    </select>
+
+    <button id="resetBtn">Reset</button>
+    <button id="saveBtn">Save</button>
+ 
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>TO DO</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>Alarm ⏰</th>
+            <th>Done ✔</th>
+            <th>Countdown ⏳</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody id="taskTable">
+        <tr>
+            <td contenteditable="true">task</td>
+            <td><input type="time" value="08:00"></td>
+            <td><input type="time" value="09:00"></td>
+            <td><input type="checkbox" class="alarm"></td>
+            <td><input type="checkbox" class="done"></td>
+            <td><button class="deleteBtn">✖</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="progress-section">
+    <p id="progressText">Progress: 0%</p>
+    <div class="progress-circle">
+    <svg width="200" height="200">
+    <defs>
+        <radialGradient id="glowGradient" cx="50%" cy="50%" r="60%">
+    <stop offset="0%" stop-color="#00eaff" stop-opacity="1"/>
+    <stop offset="40%" stop-color="#00eaff" stop-opacity="0.6"/>
+    <stop offset="70%" stop-color="#00eaff" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#00eaff" stop-opacity="0"/>
+</radialGradient>
+    </defs>
+
+    <circle cx="100" cy="100" r="80" class="bg-circle"></circle>
+    <circle cx="100" cy="100" r="65" class="inner-glow"></circle>
+    <circle cx="100" cy="100" r="80" class="progress-ring"></circle>
+</svg>
+</div>
+</div>
+
+<div class="stopwatch">
+    <h2>STOPWATCH</h2>
+    <div id="display">00:00:00</div>
+    <div class="sw-buttons">
+        <button id="startSW">Start</button>
+        <button id="pauseSW">Pause</button>
+        <button id="resetSW">Reset</button>
+    </div>
+</div>
+<div id="liveClock"></div>
+<div id="liveDate"></div>
+<div id="alarmModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 id="modalTitle">ALARM</h2>
+        <p id="modalTaskName">Task Name</p>
+        <p id="modalStatus">Starts Now!</p>
+        <button id="closeModalBtn">OK</button>
+    </div>
+</div>
+
+<audio id="alarmTone" src="alarm.mp3" preload="auto" loop></audio>
+<audio id="doneSound" src="done.mp3" preload="auto"></audio>
+<script src="script.js"></script>
+
+</body>
+</html>
